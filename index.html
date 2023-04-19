@@ -7,52 +7,107 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="css/bootstrap.min.css">
-    <link rel="stylesheet" href="js/jquery-3.6.4.min.js">
-    <link rel="stylesheet" href="js/bootstrap.min.js">
+    <script src="js/jquery-3.6.4.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/check.js"></script>
 </head>
 
 <body>
     <div class="container">
         <div class="row">
             <div class="btn-group btn-group-lg">
-                <button type="button" class="btn" data-toggle="modal" data-target="#exampleModal">Apple</button>
-                <button type="button" class="btn">Samsung</button>
+                <button type="button" class="btn text-primary" data-toggle="modal" data-target="#exampleModalLong">Apple</button>
+                <button type="button" class="btn text-primary">Samsung</button>
             </div>
         </div>
         <div class="row">
             <table class="table table-striped">
                 <thead>
                     <tr>
-                        <th>STT</th>
-                        <th>Ma benh nhan</th>
-                        <th>Mat khau</th>
-                        <th>Ngay kham</th>
-                        <th>Phu thu dich vu</th>
-                        <th>Chuyen khoa</th>
+                        <th scope="col">STT</th>
+                        <th scope="col">Ma benh nhan</th>
+                        <th scope="col">Mat khau</th>
+                        <th scope="col">Ngay kham</th>
+                        <th scope="col">Phu thu dich vu</th>
+                        <th scope="col">Chuyen khoa</th>
                     </tr>
                 </thead>
+                <tbody>
+                    <tr>
+                        <th scope="row">1</th>
+                        <td>123456a</td>
+                        <td>Bn_012345</td>
+                        <td>12/8/2020</td>
+                        <td>100000000</td>
+                        <td>Ngoai tong quat</td>
+                    </tr>
+                </tbody>
             </table>
         </div>
     </div>
-    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-              </button>
-                </div>
-                <div class="modal-body">
-                    ...
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary">Save changes</button>
-                </div>
-            </div>
+  <!-- Modal -->
+  <div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLongTitle">Đặt lịch khám online</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
         </div>
+        <div class="modal-body">
+          <div class="form-group">
+            <label for="user " class="font-weight-bold">Mã bệnh nhân:</label>
+            <input type="text" class = "form-control" id="user" placeholder="Mã bệnh nhân">
+            <p class="font-italic text-danger">(*)BN-YYYYY</p>
+          </div>
+          <div class="form-group">
+            <label for="password " class="font-weight-bold">Mật khẩu:</label>
+            <input type="password" class = "form-control" id="password" placeholder="Mật khẩu">
+            <p class="font-italic text-danger">(*)</p>
+          </div>
+          <div class="form-group">
+            <label for="dateTime " class="font-weight-bold">Ngày khám:</label>
+            <input type="date" class = "form-control" id="dateTime">
+            <p class="font-italic text-danger">(*)</p>
+          </div>
+          <p class="font-weight-bold">Loại dịch vụ</p>
+          <div class="form-check-inline">
+            <div class="custom-control custom-checkbox">
+              <input type="checkbox" class="custom-control-input loaiDichVu" id="KhamBenh" name="example1">
+              <label class="custom-control-label" for="KhamBenh">Khám bệnh theo yêu cầu</label>
+            </div>
+          </div>
+          <div class="form-check-inline">
+            <div class="custom-control custom-checkbox">
+              <input type="checkbox" class="custom-control-input loaiDichVu" id="NgoaiTru" name="example1">
+              <label class="custom-control-label" for="NgoaiTru">Điều trị ngoại trù</label>
+            </div>
+          </div>
+          <div class="form-check-inline">
+            <div class="custom-control custom-checkbox">
+              <input type="checkbox" class="custom-control-input loaiDichVu" id="BacSi" name="example1">
+              <label class="custom-control-label" for="BacSi">Bác sĩ theo yêu cầu</label>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="password " class="font-weight-bold">Mật khẩu:</label>
+            <select name="ChuyenKhoa" id="ChuyenKhoa" class="custom-select">
+              <option value="Ngoại tổng quát">Ngoại tổng quát</option>
+              <option value="Nhi">Nhi</option>
+              <option value="Nội tổng quát">Nội tổng quát</option>
+            </select>
+           <div>
+            <button type="btnDatLich" class="btn btn-primary mt-3" data-dismiss="modal" onclick="check()">Đặt lịch</button>
+           </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+        </div>
+      </div>
     </div>
+  </div>
 </body>
 
 </html>
